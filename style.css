@@ -5,9 +5,12 @@
     --light2: #fff;
     --dark1: #2a2424;
     --dark1L: #473d3d;
-    --dark2: #000000;
+	--dark1L-hover:#3d3434;
+	--dark1L-active:#584b4b;
+    --dark2: #0d0d0d;
     --aem-purple: #8018c4;
     --aem-green: #04AA6D;
+	--aem-yellow: #da9600;
 }
 
 *,
@@ -35,6 +38,11 @@ html {
 
 /* HEADER */
 
+header {
+	background-color: var(--dark2);
+	color: var(--aem-yellow);
+}
+
 /* MAIN */
 
 html {
@@ -52,7 +60,34 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
+	margin: 20px;
 }
+
+.buttons {
+	display:flex;
+	justify-content: center;
+	gap: 10px;
+}
+#colorPicker, .button{
+	width: 80px;
+	height: 40px;
+	background-color: var(--dark1L);
+	border-style: double;
+	border-color: var(--aem-yellow);
+	border-radius: 5px;
+	color: var(--aem-yellow);
+}
+
+.button:hover {
+	border-color: var(--aem-purple);
+}
+
+.button:active, button.active {
+	background-color: var(--aem-green);
+	color: black;
+}
+
+
 .sliderContainer {
     width: 20%;
 }
@@ -101,7 +136,7 @@ footer {
     width: 100%;
     padding: 10px;
     gap: 10px;
-    background-color: var(--dark1);
+    background-color: var(--dark2);
     color: var(--light1);
     font-size: 12px;
   }

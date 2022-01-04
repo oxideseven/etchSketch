@@ -1,14 +1,15 @@
 //VARIABLES
 
 const grid = document.getElementById('grid');
-const resetBtn = document.getElementById('resetBtn');
+const colorPicker = document.getElementById('colorPicker');
 const colorBtn = document.getElementById('colorBtn');
 const rainbowBtn = document.getElementById('rainbowBtn');
 const sketchBtn = document.getElementById('sketchBtn');
+const resetBtn = document.getElementById('resetBtn');
 const sizeSlider = document.getElementById("sizeSlider");
 const gridSizeOutput = document.getElementById("gridSizeOutput");
 
-const DEFAULT_COLOR = 'pink';
+const DEFAULT_COLOR = "#C48F9E";
 const DEFAULT_SIZE = 16;
 const DEFAULT_MODE = 'color';
 
@@ -33,7 +34,7 @@ function cellFill() {
                 if (currentOpacity <= 0.9) {
                     this.style.backgroundColor = `rgba(0, 0, 0, ${currentOpacity + 0.1})`;
                 }
-            } else if (this.style.backgroundColor == 'rgb(0, 0, 0)') {
+            } else if (this.style.backgroundColor === 'rgb(0, 0, 0)') {
                 return;
             } else {
                 this.style.backgroundColor = 'rgba(0, 0, 0, 0.1)';  
@@ -53,7 +54,6 @@ sizeSlider.onchange = (e) => changeSize(e.target.value);
 
 function rainbowMode() {
     hue += 10;
-    console.log(hue);
     if (hue > 350) {
         hue = 0
         return `hsl(${hue}, 80%, 50%)`
@@ -87,11 +87,39 @@ function updateSizeOutput(value) {
     gridSizeOutput.innerHTML = `${value} x ${value}`;
 }
 
+function changeColor(newColor) {
+    currentColor = newColor;
+}
+
+function buttonMode(newMode) {
+    colorBtn.classList.remove('active');
+    rainbowBtn.classList.remove('active');
+    sketchBtn.classList.remove('active');
+
+    switch (newMode) {
+        case 'color':
+            // colorBtn.style.backgroundColor = 'var(--aem-green)';
+            colorBtn.classList.add('active');
+            currentMode = 'color';
+            break;
+        case 'rainbow':
+            rainbowBtn.classList.add('active');
+            currentMode = 'rainbow';
+            break;
+        case 'sketch':
+            sketchBtn.classList.add('active');
+            currentMode = 'sketch'
+            break;
+    }
+}
+
 //THE REST
 
+colorPicker.onchange = (e) => changeColor(e.target.value);
+colorBtn.onclick = () => buttonMode('color');
+rainbowBtn.onclick = () => buttonMode('rainbow');
+sketchBtn.onclick = () => buttonMode('sketch');
 resetBtn.onclick = () => resetGrid();
-colorBtn.onclick = () => currentMode = 'color';
-rainbowBtn.onclick = () => currentMode = 'rainbow';
-sketchBtn.onclick = () => currentMode = 'sketch';
 
 setupGrid();
+buttonMode('color');
