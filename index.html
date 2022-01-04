@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Etch-a-Sketch</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="./style.css">
+        <script src="https://kit.fontawesome.com/aa3c0044a8.js" crossorigin="anonymous"></script>
+        <script src = "./script.js" defer></script>
+    </head>
+    <body>
+        <header>
+            <h1>oxideSeven Presents:</h1>
+            <h2>The 
+                    <br> Amazing, Wonderous, Magical, and Inconceivable... 
+                    <br>Sketch-o-Tron 9001
+            </h2>
+        </header>
+
+        <main>
+            <div class = "buttons">
+                <button id = "resetBtn">Reset</button>
+                <button id = "colorBtn">Color</button>
+                <button id = "rainbowBtn">Rainbow</button>
+                <button id = "sketchBtn">Sketch</button>
+            </div>
+            
+            <div class = "sliderContainer">
+                <div>Grid Size: <span id = "gridSizeOutput">16 x 16</span></div>
+                <input id = "sizeSlider" type = "range" min = "8" max = "96" value = "16" class = "slider"/>
+            </div>
+
+            <div id = "grid"></div>
+        </main>
+
+        <footer>
+            <p>Copyright ©<script>document.write(new Date().getFullYear())</script> oxideSeven</p>
+            <a href="https://github.com/oxideseven" target="_blank"><i class="fab fa-github"></i></a>
+        </footer>
+    </body>
+</html>

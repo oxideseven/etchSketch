@@ -1,0 +1,128 @@
+
+/* ROOT STUFF */
+:root {
+    --light1: #ebebeb;
+    --light2: #fff;
+    --dark1: #2a2424;
+    --dark1L: #473d3d;
+    --dark2: #000000;
+    --aem-purple: #8018c4;
+    --aem-green: #04AA6D;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    /* footer support */
+    position: relative;
+    min-height: 100%;
+  }
+  
+  body {
+    background-color: var(--dark1);
+    color: var(--light1);
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    /* footer support */
+    margin-bottom: 100px;
+  }
+
+/* HEADER */
+
+/* MAIN */
+
+html {
+    text-align: center;
+}
+#grid {
+    display: grid;
+    width: 800px;
+    height: 800px;
+    background-color: var(--dark1L);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.sliderContainer {
+    width: 20%;
+}
+  
+.slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%; 
+    height: 4px;
+    background: var(--light1);
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    background: var(--aem-green);
+    cursor: pointer;
+}
+  
+.slider::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    background: var(--aem-green);
+    cursor: pointer;
+}
+
+/* FOOTER */
+
+footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 10px;
+    gap: 10px;
+    background-color: var(--dark1);
+    color: var(--light1);
+    font-size: 12px;
+  }
+
+.fa-github {
+    color: var(--aem-purple);
+    font-size: 24px;
+  }
+  
+.fa-github:hover {
+    animation: skew 0.2s;
+    animation-direction: alternate;
+    animation-iteration-count: 2;
+    transform: scale(1.2);
+  }
+
+  @keyframes skew {
+    0% {
+      transform: skew(20deg, 20deg);
+    }
+    100% {
+      transform: skew(-20deg, -20deg);
+    }
+  }
